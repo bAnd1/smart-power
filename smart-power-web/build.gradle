@@ -1,0 +1,16 @@
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+dependencies {
+    compile project(":smart-power-service")
+    compile "org.springframework:spring-webmvc:$springVersion"
+    compile "org.springframework:spring-context-support:$springVersion"
+    compile "org.springframework.security:spring-security-web:$springSecurityVersion"
+    compile 'org.freemarker:freemarker:2.3.19'
+
+    providedCompile "javax.servlet:servlet-api:2.5"
+    providedRuntime "javax.faces:jsf-api:1.2_02"
+    providedRuntime "javax.servlet:jstl:1.1.2", "taglibs:standard:1.1.2"
+
+
+}

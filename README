@@ -1,1 +1,2 @@
-This file was created by IntelliJ IDEA 12.1.2 for binding GitHub repository
+To start the application, go to spart-power-web and execute 'gradlew jettyRun'
+Then go to http://localhost:8080/smart-power-web/
