@@ -1,2 +1,2 @@
 To start the application, go to smart-power-web and execute 'gradlew jettyRun'
-Then go to http://localhost:8080/smart-power-web/
+Then go to http://localhost:8080/
