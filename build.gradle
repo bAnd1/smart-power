@@ -10,6 +10,7 @@ subprojects {
     repositories {
         mavenCentral()
     }
+
     dependencies {
         compile "javax.inject:javax.inject:1"
 
@@ -29,6 +30,4 @@ subprojects {
         sourceCompatibility = 1.6
         targetCompatibility = 1.6
     }
-
-
 }
