@@ -12,6 +12,7 @@ dependencies {
     compile "org.springframework.security:spring-security-config:$springSecurityVersion"
 
     compile "com.h2database:h2:1.3.160"
+    compile 'org.rrd4j:rrd4j:2.2'
 
     compile "org.hibernate:hibernate-entitymanager:$hibernateVersion",
             "org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final",
