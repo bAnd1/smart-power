@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class HomeController {
 
     @RequestMapping
-    public ModelAndView getHomepage() {
-        return new ModelAndView("index");
+    public String getHomepage() {
+        return "index";
     }
 }
