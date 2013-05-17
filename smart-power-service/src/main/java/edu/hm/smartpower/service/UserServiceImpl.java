@@ -13,6 +13,8 @@ import javax.inject.Named;
 public class UserServiceImpl implements UserService {
     @Inject
     private GenericCrudService genericCrudService;
+
+    @Named("passwordEncoder")
     @Inject
     private PasswordEncoder passwordEncoder;
 
