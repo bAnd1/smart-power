@@ -1,4 +1,4 @@
-package edu.hm.smartpower.service;
+package edu.hm.smartpower.dao;
 
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,7 +16,7 @@ import java.util.List;
 
 @Named
 @Transactional(readOnly = true)
-public class GenericCrudServiceImpl implements GenericCrudService {
+public class GenericCrudDaoImpl implements GenericCrudDao {
 
     @PersistenceContext
     private EntityManager entityManager;

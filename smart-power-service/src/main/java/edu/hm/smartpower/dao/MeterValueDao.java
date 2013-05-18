@@ -1,10 +1,16 @@
 package edu.hm.smartpower.dao;
 
+import edu.hm.smartpower.domain.Period;
 import edu.hm.smartpower.domain.User;
+import org.joda.time.DateTime;
 
-import java.util.Date;
+import java.util.Map;
 
 public interface MeterValueDao {
 
-    public void storeValue(Date date,float value,User user);
+	void storeValue(DateTime date, float value, User user);
+
+	Map<DateTime,Float> getUsages(Period period);
+
+	Float getMeterReading(User currentUser, DateTime dateTime);
 }

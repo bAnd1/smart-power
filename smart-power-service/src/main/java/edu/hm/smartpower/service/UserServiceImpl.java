@@ -1,5 +1,6 @@
 package edu.hm.smartpower.service;
 
+import edu.hm.smartpower.dao.GenericCrudDao;
 import edu.hm.smartpower.domain.User;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,7 +13,7 @@ import javax.inject.Named;
 @Named
 public class UserServiceImpl implements UserService {
     @Inject
-    private GenericCrudService genericCrudService;
+    private GenericCrudDao genericCrudDao;
 
     @Named("passwordEncoder")
     @Inject
@@ -20,7 +21,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return genericCrudService.getById(User.class, username);
+        return genericCrudDao.getById(User.class, username);
     }
 
     @Override
@@ -40,6 +41,6 @@ public class UserServiceImpl implements UserService {
         user.setUsername(username);
         user.setPassword(passwordEncoder.encode(password));
 
-        genericCrudService.persist(user);
+        genericCrudDao.persist(user);
     }
 }

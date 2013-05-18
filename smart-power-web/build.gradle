@@ -9,7 +9,9 @@ dependencies {
     compile "org.springframework.security:spring-security-web:$springSecurityVersion"
     compile 'org.freemarker:freemarker:2.3.19'
 
-    providedCompile "javax.servlet:servlet-api:2.5"
+	compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.12'
+
+	providedCompile "javax.servlet:servlet-api:2.5"
     providedRuntime "javax.faces:jsf-api:1.2_02"
     providedRuntime "javax.servlet:jstl:1.1.2", "taglibs:standard:1.1.2"
 

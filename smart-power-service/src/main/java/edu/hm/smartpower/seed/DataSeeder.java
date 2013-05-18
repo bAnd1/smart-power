@@ -1,7 +1,7 @@
 package edu.hm.smartpower.seed;
 
 import edu.hm.smartpower.domain.*;
-import edu.hm.smartpower.service.GenericCrudService;
+import edu.hm.smartpower.dao.GenericCrudDao;
 import edu.hm.smartpower.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +20,7 @@ public class DataSeeder {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Inject
-    private GenericCrudService genericCrudService;
+    private GenericCrudDao genericCrudDao;
     @Inject
     private UserService userService;
 
@@ -32,7 +32,7 @@ public class DataSeeder {
     }
 
     private void logInUser(String username) {
-        User user = genericCrudService.getById(User.class, username);
+        User user = genericCrudDao.getById(User.class, username);
 
         SecurityContext securityContext = new SecurityContextImpl();
         securityContext.setAuthentication(new TestingAuthenticationToken(user, null));
@@ -44,6 +44,6 @@ public class DataSeeder {
         userService.createAccount("admin", "admin");
         userService.createAccount("user", "user");
 
-        Assert.isTrue(2L == genericCrudService.getCount(User.class));
+        Assert.isTrue(2L == genericCrudDao.getCount(User.class));
     }
 }

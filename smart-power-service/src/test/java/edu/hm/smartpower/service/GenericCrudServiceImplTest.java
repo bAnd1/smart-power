@@ -1,5 +1,6 @@
 package edu.hm.smartpower.service;
 
+import edu.hm.smartpower.dao.GenericCrudDao;
 import edu.hm.smartpower.domain.User;
 import org.junit.Assert;
 import org.junit.Test;
@@ -17,15 +18,15 @@ import javax.inject.Inject;
 public class GenericCrudServiceImplTest {
 
     @Inject
-    private GenericCrudService genericCrudService;
+    private GenericCrudDao genericCrudDao;
 
     @Test(expected = JpaSystemException.class)
     public void testPersistSameUsernameTwice() throws Exception {
-        long countBefore = genericCrudService.getCount(User.class);
-        genericCrudService.persist(createUser("asdf"));
-        Assert.assertEquals(countBefore + 1, genericCrudService.getCount(User.class).longValue());
+        long countBefore = genericCrudDao.getCount(User.class);
+        genericCrudDao.persist(createUser("asdf"));
+        Assert.assertEquals(countBefore + 1, genericCrudDao.getCount(User.class).longValue());
 
-        genericCrudService.persist(createUser("asdf"));
+        genericCrudDao.persist(createUser("asdf"));
     }
 
     private User createUser(String username) {

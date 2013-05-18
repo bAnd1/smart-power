@@ -1,4 +1,4 @@
-package edu.hm.smartpower.service;
+package edu.hm.smartpower.dao;
 
 import java.util.Collection;
 import java.util.List;
@@ -7,7 +7,7 @@ import java.util.List;
  * Defines CRUD (Create, Read, Update, Delete) actions, that can be performed on any @{@link javax.persistence.Entity}
  * annotated class.
  */
-public interface GenericCrudService {
+public interface GenericCrudDao {
 
     /**
      * Only to be used for newly created entities
