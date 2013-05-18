@@ -6,23 +6,23 @@
 
 body {
     background-color: white;
-    padding: 10px;
     margin: 0 auto;
 }
 
 header {
-    background-color: dodgerblue;
     color: white;
     position: fixed;
-    top:0;
+    top: 0;
+    right: 0;
+    left: 0;
     width: 100%;
-    height: 133px;
+    height: 123px;
     font-family: fantasy;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(blue), to(rgb(15, 213, 255)));
+    background: dodgerblue -webkit-gradient(linear, left top, left bottom, from(blue), to(rgb(15, 213, 255)));
 }
 
 header h1 {
-    padding: 5px;
+    margin-left: 25px;
     font-weight: 400;
     font-size: 5em;
     text-align: left;
@@ -39,46 +39,75 @@ header a {
 }
 
 #header-menubar {
-    /*background-color: blue;*/
-    background-color: rgba(15, 213, 255, 0.85);
-    /*opacity: 0.4;*/
-    padding: 10px;
-    line-height: 25px;
+    font-size: 1.2em;
+    height: 30px;
+    background-color: rgba(15, 213, 255, 0.70);
 }
 
 #header-menubar ul {
     width: 100%;
-    height: 25px;
     list-style: none;
+    margin-left: -40px;
+    /*height: 25px;*/
 }
 
 #header-menubar li {
     width: 25%;
     float: left;
-    height: 25px;
     text-align: center;
 }
 
-#content {
-    margin: 0 auto;
+#header-menubar li:hover {
+    text-shadow: -1px 1px 8px #ffc, 1px -1px 8px white;
+    background-color: rgba(15, 213, 255, 1.0);
+}
+
+#main {
     overflow: auto;
-    padding: 170px 0;
-    height: 1000px;
+    padding-top: 170px;
+    min-height: 1000px;
+}
+
+#content {
+    float: left;
+    margin-left: 15px;
+    text-align: justify;
+    width: 70%;
+
+}
+
+#dashboard-bar {
+    position: fixed;
+    right: 0;
+    width: 25%;
+}
+
+#overview {
+    position: absolute;
+    height: 200px;
+    margin-right: 15px;
+    border: black solid;
+}
+
+#overviewt table {
+    width: 100%;
+    height: 100%;
+}
+
+#overview table tr {
 }
 
 footer {
     font-size: 0.6em;
-    font-family: Arial,sans-serif;
-    font-weight: bold;
+    font-family: Arial, sans-serif;
     background-color: grey;
-    bottom: 0;
-    height: 5px;
-    left: 0;
-    position: fixed;
     width: 100%;
-    line-height: 5px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     color: white;
-    padding: 10px;
+    padding: 4px;
+    clear: both;
 }
 
 footer p {
