@@ -13,15 +13,34 @@
     <mvc:annotation-driven/>
     <context:component-scan base-package="edu.hm.smartpower.web"/>
 
+    <!-- Location for resources like css/js or images/icons -->
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
+
     <!-- freemarker config -->
     <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
         <property name="templateLoaderPath" value="/WEB-INF/ftl/"/>
     </bean>
-
     <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
         <property name="cache" value="true"/>
         <property name="prefix" value=""/>
         <property name="suffix" value=".ftl"/>
     </bean>
+
+    <!-- thymeleaf config-->
+    <!--<bean id="templateResolver"-->
+        <!--class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">-->
+    <!--<property name="prefix" value="/WEB-INF/templates/" />-->
+    <!--<property name="suffix" value=".html" />-->
+    <!--<property name="templateMode" value="HTML5" />-->
+  <!--</bean>-->
+    <!---->
+  <!--<bean id="templateEngine"-->
+        <!--class="org.thymeleaf.spring3.SpringTemplateEngine">-->
+    <!--<property name="templateResolver" ref="templateResolver" />-->
+  <!--</bean>-->
+   <!---->
+  <!--<bean class="org.thymeleaf.spring3.view.ThymeleafViewResolver">-->
+    <!--<property name="templateEngine" ref="templateEngine" />-->
+  <!--</bean>   -->
 
 </beans>
