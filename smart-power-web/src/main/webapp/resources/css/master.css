@@ -85,10 +85,6 @@ body {
     width: 70%;
 }
 
-#page-wrap {
-    position: relative;
-}
-
 #dashboard-bar {
     float: right;
     width: 25%;

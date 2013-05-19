@@ -9,6 +9,6 @@ public class HomeController {
 
     @RequestMapping
     public String getHomepage() {
-        return "master";
+        return "index";
     }
 }
