@@ -1,12 +1,12 @@
-$(function() {
+$(function () {
 
-    var $sidebar   = $("#dashboard-bar"),
-        $window    = $(window),
-        offset     = $sidebar.offset(),
+    var $sidebar = $("#dashboard-bar"),
+        $window = $(window),
+        offset = $sidebar.offset(),
         topPadding = 40;
 
-    $window.scroll(function() {
-        if ($window.scrollTop() > offset.top) {
+    $window.scroll(function () {
+        if ($window.scrollTop() > offset.top - 40) {
             $sidebar.stop().animate({
                 marginTop: $window.scrollTop() - offset.top + topPadding
             });
@@ -16,5 +16,5 @@ $(function() {
             });
         }
     });
-    
+
 });
