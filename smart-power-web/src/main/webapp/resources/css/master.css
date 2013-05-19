@@ -71,6 +71,7 @@ body {
 
 #main {
     margin-top: 30px;
+    min-height: 800px;
 }
 
 #content {
@@ -80,10 +81,13 @@ body {
     width: 70%;
 }
 
+#page-wrap {
+    position: relative;
+}
+
 #dashboard-bar {
-    position: fixed;
-    right: 0;
-    width: 25%;
+    float: right;
+    width: 410px;
 }
 
 #overview {
@@ -98,11 +102,11 @@ body {
 }
 
 #overview table td {
-    padding: 15px
+    padding: 15px;
 }
 
 footer {
-    font-size: 0.8em;
+    font-size: 0.9em;
     font-family: Arial, sans-serif;
     background-color: grey;
     width: 100%;
