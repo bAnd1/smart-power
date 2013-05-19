@@ -9,6 +9,6 @@ public class HomeController {
 
     @RequestMapping
     public String getHomepage() {
-        return "/WEB-INF/ftl/master.html";
+        return "master";
     }
 }

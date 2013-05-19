@@ -12,7 +12,7 @@ header {
 header h1 {
     margin-left: 25px;
     font-weight: 400;
-    font-size: 5em;
+    font-size: 5.5em;
     text-shadow: -1px 1px 8px #ffc, 1px -1px 8px white;
 }
 
@@ -45,6 +45,7 @@ body {
 }
 
 #stickyheader table {
+    font-size: 1.4em;
     width: 100%;
     color: white;
     background-color: rgba(15, 213, 255, 0.7);
@@ -72,12 +73,14 @@ body {
 
 #main {
     margin-top: 30px;
-    min-height: 800px;
+
 }
 
 #content {
+    font-size: 1.5em;
     float: left;
     margin-left: 15px;
+    margin-bottom: 30px;
     text-align: justify;
     width: 70%;
 }
@@ -88,7 +91,7 @@ body {
 
 #dashboard-bar {
     float: right;
-    width: 410px;
+    width: 25%;
 }
 
 #overview {
@@ -107,7 +110,8 @@ body {
 }
 
 footer {
-    font-size: 0.9em;
+    font-size: 1.1em;
+    padding: 3px;
     font-family: Arial, sans-serif;
     background-color: grey;
     width: 100%;
