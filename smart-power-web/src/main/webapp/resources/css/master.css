@@ -1,22 +1,10 @@
 * {
-    margin: 0;
     font-size: 1em;
-
-}
-
-body {
-    background-color: white;
-    margin: 0 auto;
+    margin: 0;
 }
 
 header {
     color: white;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    height: 123px;
     font-family: fantasy;
     background: dodgerblue -webkit-gradient(linear, left top, left bottom, from(blue), to(rgb(15, 213, 255)));
 }
@@ -25,7 +13,6 @@ header h1 {
     margin-left: 25px;
     font-weight: 400;
     font-size: 5em;
-    text-align: left;
     text-shadow: -1px 1px 8px #ffc, 1px -1px 8px white;
 }
 
@@ -38,34 +25,52 @@ header a {
     text-decoration: none;
 }
 
-#header-menubar {
-    font-size: 1.2em;
-    height: 30px;
-    background-color: rgba(15, 213, 255, 0.70);
+body {
+    margin-left: 0;
+    margin-right: 0;
+    font: 13px sans-serif;
 }
 
-#header-menubar ul {
+#stickyheader {
+    color: white;
+    font-family: sans-serif, serif;
+    font-size: 1.5em;
+    font-weight: lighter;
+}
+
+#stickyheader a {
+    color: white;
+    text-decoration: none;
+}
+
+#stickyheader table {
     width: 100%;
-    list-style: none;
-    margin-left: -40px;
-    /*height: 25px;*/
+    color: white;
+    background-color: rgba(15, 213, 255, 0.7);
 }
 
-#header-menubar li {
-    width: 25%;
-    float: left;
+#stickyheader td {
     text-align: center;
+    width: 25%;
 }
 
-#header-menubar li:hover {
+#stickyheader td:hover {
     text-shadow: -1px 1px 8px #ffc, 1px -1px 8px white;
     background-color: rgba(15, 213, 255, 1.0);
 }
 
+#stickyheader {
+    width: 100%;
+    height: 10px;
+}
+
+#stickyalias {
+    display: none;
+    height: 10px;
+}
+
 #main {
-    overflow: auto;
-    padding-top: 170px;
-    min-height: 1000px;
+    margin-top: 30px;
 }
 
 #content {
@@ -73,7 +78,6 @@ header a {
     margin-left: 15px;
     text-align: justify;
     width: 70%;
-
 }
 
 #dashboard-bar {
@@ -83,22 +87,22 @@ header a {
 }
 
 #overview {
-    position: absolute;
-    height: 200px;
-    margin-right: 15px;
-    border: black solid;
 }
 
-#overviewt table {
-    width: 100%;
-    height: 100%;
+#overview table {
+    border-collapse: collapse;
 }
 
 #overview table tr {
+    border: black solid;
+}
+
+#overview table td {
+    padding: 15px
 }
 
 footer {
-    font-size: 0.6em;
+    font-size: 0.8em;
     font-family: Arial, sans-serif;
     background-color: grey;
     width: 100%;
@@ -106,14 +110,6 @@ footer {
     bottom: 0;
     left: 0;
     color: white;
-    padding: 4px;
     clear: both;
-}
-
-footer p {
-    font-size: 1.1em;
     text-align: center;
 }
-
-
-
