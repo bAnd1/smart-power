@@ -8,9 +8,9 @@
     <http use-expressions="true" create-session="never" realm="recon">
         <!--creating an account doesn't require to be logged in -->
         <intercept-url pattern="/users" access="permitAll" method="POST"/>
-        <intercept-url pattern="/" access="permitAll"/>
-        <intercept-url pattern="/**" access="isAuthenticated()"/>
-        <intercept-url pattern="/resources/**" access="isAuthenticated"/>
+		<intercept-url pattern="/" access="permitAll"/>
+		<intercept-url pattern="/resources/**" access="permitAll"/>
+		<intercept-url pattern="/**" access="isAuthenticated()"/>
         <http-basic/>
     </http>
 
