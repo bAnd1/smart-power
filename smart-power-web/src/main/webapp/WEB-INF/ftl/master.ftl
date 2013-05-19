@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Smart Power</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" type="text/css"
           href="/resources/css/master.css"/>
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 </head>
+
 <body>
 
 <header>
