@@ -5,13 +5,16 @@
              xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
-    <http use-expressions="true" create-session="never" realm="recon">
+    <http use-expressions="true" realm="recon" >
         <!--creating an account doesn't require to be logged in -->
         <intercept-url pattern="/users" access="permitAll" method="POST"/>
-		<intercept-url pattern="/" access="permitAll"/>
+        <intercept-url pattern="/login" access="permitAll"/>
+		<!--<intercept-url pattern="/" access="permitAll"/>-->
 		<intercept-url pattern="/resources/**" access="permitAll"/>
 		<intercept-url pattern="/**" access="isAuthenticated()"/>
+		<logout logout-url="/logout"/>
         <http-basic/>
+		<form-login login-page="/login" password-parameter="password" username-parameter="username"/>
     </http>
 
 </beans:beans>

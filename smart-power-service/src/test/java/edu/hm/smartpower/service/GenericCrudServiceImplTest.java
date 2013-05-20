@@ -4,39 +4,23 @@ import edu.hm.smartpower.dao.GenericCrudDao;
 import edu.hm.smartpower.domain.User;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.orm.jpa.JpaSystemException;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 
 import javax.inject.Inject;
+import javax.validation.ConstraintViolationException;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:spring/applicationContext.xml"})
-@TransactionConfiguration(defaultRollback = true)
-public class GenericCrudServiceImplTest {
+public class GenericCrudServiceImplTest extends AbstractServiceTest {
 
-    @Inject
-    private GenericCrudDao genericCrudDao;
+	@Inject
+	private GenericCrudDao genericCrudDao;
 
-    @Test(expected = JpaSystemException.class)
-    public void testPersistSameUsernameTwice() throws Exception {
-        long countBefore = genericCrudDao.getCount(User.class);
-        genericCrudDao.persist(createUser("asdf"));
-        Assert.assertEquals(countBefore + 1, genericCrudDao.getCount(User.class).longValue());
+	@Test(expected = JpaSystemException.class)
+	public void testPersistSameUsernameTwice() throws Exception {
+		long countBefore = genericCrudDao.getCount(User.class);
+		genericCrudDao.persist(createUser("asdf@example.com"));
+		Assert.assertEquals(countBefore + 1, genericCrudDao.getCount(User.class).longValue());
 
-        genericCrudDao.persist(createUser("asdf"));
-    }
+		genericCrudDao.persist(createUser("asdf@example.com"));
+	}
 
-    private User createUser(String username) {
-        return createUser(username, "12345");
-    }
-
-    private User createUser(String username, String password) {
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword(password);
-        return user;
-    }
 }

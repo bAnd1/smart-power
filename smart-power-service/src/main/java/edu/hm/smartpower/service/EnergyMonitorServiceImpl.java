@@ -6,6 +6,7 @@ import org.joda.time.DateTime;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +50,7 @@ public class EnergyMonitorServiceImpl implements EnergyMonitorService {
 	}
 
 	private Integer getUsageRating(User currentUser, Period period, float usageCurrentPeriod) {
+		// TODO
 		return 50;
 	}
 
@@ -62,9 +64,8 @@ public class EnergyMonitorServiceImpl implements EnergyMonitorService {
 		NumberFormat formatter = NumberFormat.getCurrencyInstance();
 		UsageDetails usageDetails = new UsageDetails();
 		usageDetails.setUsage(usage);
-		// TODO get conversion factors from user
-		usageDetails.setMoney(formatter.format(usage * 0.25));
-		usageDetails.setCo2(String.format("%.2f", usage * 0.6) + " KG");
+		usageDetails.setMoney(formatter.format(user.getPricePerKwh().multiply(new BigDecimal(usage + ""))));
+		usageDetails.setCo2(String.format("%.2f", usage * user.getGramPerKwh() / 1000) + " KG");
 		return usageDetails;
 	}
 

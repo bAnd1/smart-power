@@ -36,11 +36,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void createAccount(String username, String password) {
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword(passwordEncoder.encode(password));
-
+    public User createAccount(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         genericCrudDao.persist(user);
+		return user;
     }
 }

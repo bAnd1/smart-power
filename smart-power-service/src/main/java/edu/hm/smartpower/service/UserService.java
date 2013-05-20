@@ -16,5 +16,5 @@ public interface UserService extends UserDetailsService {
      */
     User getCurrentUser();
 
-    void createAccount(String username, String password);
+    User createAccount(User user);
 }

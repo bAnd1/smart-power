@@ -41,9 +41,7 @@ public class DataSeeder {
 
     public void registerUsers() throws Exception {
         logger.info("registering users...");
-        userService.createAccount("admin", "admin");
-        userService.createAccount("user", "user");
-
-        Assert.isTrue(2L == genericCrudDao.getCount(User.class));
+		User user = new User("user@example.com", "user");
+		userService.createAccount(user);
     }
 }

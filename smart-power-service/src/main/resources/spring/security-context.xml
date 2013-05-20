@@ -9,7 +9,7 @@
         <beans:constructor-arg value="${secretSaltSeed}"/>
     </beans:bean>
 
-    <authentication-manager>
+    <authentication-manager alias="authenticationManager">
         <authentication-provider user-service-ref="userServiceImpl">
             <password-encoder ref="passwordEncoder"/>
         </authentication-provider>
