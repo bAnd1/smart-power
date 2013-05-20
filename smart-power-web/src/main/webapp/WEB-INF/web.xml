@@ -41,4 +41,11 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <jsp-config>
+        <taglib>
+            <taglib-uri>http://www.springframework.org/security/tags</taglib-uri>
+            <taglib-location>/WEB-INF/tld/security.tld</taglib-location>
+        </taglib>
+    </jsp-config>
+
 </web-app>

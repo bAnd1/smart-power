@@ -23,42 +23,42 @@ import javax.validation.Valid;
 @Controller
 public class UserController {
 
-	Log log = LogFactory.getLog(getClass());
+    Log log = LogFactory.getLog(getClass());
 
-	@Inject
-	private UserService userService;
-	@Inject
-	ApplicationEventPublisher eventPublisher;
-	@Inject
-	@Qualifier("authenticationManager")
-	private AuthenticationManager authenticationManager;
+    @Inject
+    private UserService userService;
+    @Inject
+    ApplicationEventPublisher eventPublisher;
+    @Inject
+    @Qualifier("authenticationManager")
+    private AuthenticationManager authenticationManager;
 
-	// /users?username=bla=password=bla
-	@RequestMapping(value = "users", method = RequestMethod.POST)
-	public String createAccount(@ModelAttribute("user") @Valid User user,BindingResult bindingResult) {
-		if (!user.getPassword().equals(user.getPasswordVerification())) {
-			bindingResult.rejectValue("passwordVerification", "user.password.missmatch", "The passwords aren't equal, try again");
-		}
-		if (bindingResult.hasErrors()) {
-			return "login";
-		} else {
-			String plainTextPassword = user.getPassword();
-			userService.createAccount(user);
-			logInUser(user.getUsername(), plainTextPassword);
-			return "redirect:/";
-		}
-	}
+    // /users?username=bla=password=bla
+    @RequestMapping(value = "users", method = RequestMethod.POST)
+    public String createAccount(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
+        if (!user.getPassword().equals(user.getPasswordVerification())) {
+            bindingResult.rejectValue("passwordVerification", "user.password.missmatch", "The passwords aren't equal, try again");
+        }
+        if (bindingResult.hasErrors()) {
+            return "login_error";
+        } else {
+            String plainTextPassword = user.getPassword();
+            userService.createAccount(user);
+            logInUser(user.getUsername(), plainTextPassword);
+            return "redirect:/";
+        }
+    }
 
-	private void logInUser(String username, String plainTextPassword) {
-		UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
-				username, plainTextPassword);
-		Authentication authenticatedUser = authenticationManager.authenticate(token);
-		SecurityContextHolder.getContext().setAuthentication(authenticatedUser);
-	}
+    private void logInUser(String username, String plainTextPassword) {
+        UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
+                username, plainTextPassword);
+        Authentication authenticatedUser = authenticationManager.authenticate(token);
+        SecurityContextHolder.getContext().setAuthentication(authenticatedUser);
+    }
 
 
-	@RequestMapping("/login")
-	public ModelAndView login() {
-		return new ModelAndView("login", "user", new User());
-	}
+    @RequestMapping("/login")
+    public ModelAndView login() {
+        return new ModelAndView("login_request", "user", new User());
+    }
 }

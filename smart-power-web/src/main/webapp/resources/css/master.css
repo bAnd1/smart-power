@@ -16,13 +16,30 @@ header h1 {
     text-shadow: -1px 1px 8px #ffc, 1px -1px 8px white;
 }
 
-header h1 a:hover {
+header a:hover {
     text-shadow: -1px 10px 40px #ffc, 10px -1px 40px white;
 }
 
 header a {
     color: white;
     text-decoration: none;
+}
+
+#user {
+    font-size: 1.3em;
+    list-style-type: none;
+    text-align: right;
+    margin-top: -65px;
+    margin-right: 25px;
+    padding-bottom: 5px;
+}
+
+#user a:hover {
+    text-decoration: underline;
+}
+
+#user ul {
+    list-style-type: none;
 }
 
 body {
@@ -90,9 +107,6 @@ body {
     width: 25%;
 }
 
-#overview {
-}
-
 #overview table {
     border-collapse: collapse;
 }
@@ -118,3 +132,123 @@ footer {
     clear: both;
     text-align: center;
 }
+
+/*Login*/
+
+#login {
+    width: 450px;
+    margin: 0 auto;
+}
+
+#login p {
+    text-align: center;
+    font-size: 2em;
+}
+
+#login p:last-child {
+    padding-top: 20px;
+}
+
+#login ul {
+    list-style: none;
+    margin: 10px;
+    padding: 0;
+}
+
+#toggle_signup {
+    font-size: 1.2em;
+    text-align: center;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 5px;
+    background-color: lightblue;
+    border: solid 1px #c3c3c3;
+}
+
+input[type=text], input[type=password] {
+    width: 400px;
+    text-align: center;
+}
+
+input[type=submit] {
+    width: 423px;
+}
+
+#login ul li input {
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    color: #222222;
+    display: block;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: -1px;
+    padding: 12px 10px;
+    text-decoration: none;
+}
+
+#login ul li:first-child input {
+    -webkit-border-top-right-radius: 10px;
+    -webkit-border-top-left-radius: 10px;
+}
+
+#login ul li:last-child input {
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+}
+
+#login ul li:last-child input:hover {
+    background-color: orange;
+}
+
+#signup {
+    display: none;
+    width: 450px;
+    margin: 40px auto 0;
+}
+
+#signup p {
+    text-align: center;
+    font-size: 2em;
+}
+
+.signup_error {
+    color: red;
+    font-weight: bold;
+}
+
+#signup ul {
+    list-style: none;
+    margin: 10px;
+    padding: 0;
+}
+
+#signup ul li input {
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    color: #222222;
+    display: block;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: -1px;
+    padding: 12px 10px;
+    text-decoration: none;
+}
+
+#signup ul li:first-child input {
+    -webkit-border-top-right-radius: 10px;
+    -webkit-border-top-left-radius: 10px;
+}
+
+#signup ul li:last-child input {
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+}
+
+#signup ul li:last-child input:hover {
+    background-color: orange;
+}
+
+
+
+
