@@ -15,5 +15,7 @@
     <context:property-placeholder location="classpath:jdbc.properties, classpath:application.properties"/>
     <context:annotation-config/>
 
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+
 
 </beans>

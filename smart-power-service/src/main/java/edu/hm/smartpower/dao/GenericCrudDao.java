@@ -31,4 +31,6 @@ public interface GenericCrudDao {
     public <T> List<T> getByIdIn(Class<T> entityClass, Collection<?> primaryKeys);
 
     <T> List<T> getByPropertyIn(Class<T> entityClass, String property, Collection<?> propertyValues);
+
+	void detach(Object entity);
 }

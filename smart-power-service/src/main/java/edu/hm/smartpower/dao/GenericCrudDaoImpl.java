@@ -94,4 +94,9 @@ public class GenericCrudDaoImpl implements GenericCrudDao {
         }
         throw new IllegalArgumentException(originalEntityClass.getName() + " does not have an @Id Annotation");
     }
+
+	@Override
+	public void detach(Object entity) {
+		entityManager.detach(entity);
+	}
 }

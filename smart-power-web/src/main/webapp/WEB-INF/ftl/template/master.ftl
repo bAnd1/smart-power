@@ -18,12 +18,13 @@
 
     <@sec.authorize access="isAuthenticated()">
         <div id="user">
-            <li>
-                Welcome <@sec.authentication property="principal.username"/>
-            </li>
-            <li>
-                <a href="/logout">Logout</a>
-            </li>
+			<ul>
+				<li>
+					Welcome <@sec.authentication property="principal.username"/>
+				</li>
+				<li>
+					<a href="/logout">Logout</a>
+				</li>
             </ul>
         </div>
     </@sec.authorize>
@@ -33,10 +34,10 @@
     <div id="stickyheader">
         <table>
             <tr>
-                <td><a href="">Filter</a></td>
+                <td><a href="/">Usage</a></td>
                 <td><a href="">Notifications</a></td>
                 <td><a href="">Forecast</a></td>
-                <td><a href="">Settings</a></td>
+                <td><a href="/settings">Settings</a></td>
             </tr>
         </table>
     </div>
@@ -44,6 +45,8 @@
     </@sec.authorize>
 
 <div id="main">
+	<#if success?? ><p class="notice">${success}</p></#if>
+	<#if error?? ><p class="alert">${error}</p></#if>
     <@sec.authorize access="isAuthenticated()">
         <#include 'sticky_dashboard.ftl'>
     </@sec.authorize>

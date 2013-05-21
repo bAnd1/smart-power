@@ -166,7 +166,7 @@ footer {
     border: solid 1px #c3c3c3;
 }
 
-input[type=text], input[type=password] {
+input {
     width: 400px;
     text-align: center;
 }
@@ -202,8 +202,24 @@ input[type=submit] {
 }
 
 .error {
-    color: red;
+    color: #990b02;
     font-weight: bold;
+}
+
+.notice {
+	margin: 0.5em;
+	padding: 0.5em;
+	border: 1px solid #008414;
+	color: #008414;
+	background-color: #D8FFBB;
+}
+
+.alert {
+	margin: 0.5em;
+	padding: 0.5em;
+	border: 1px solid #990b02;
+	color: #990b02;
+	background-color: #FFA894;
 }
 
 

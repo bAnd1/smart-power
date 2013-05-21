@@ -28,9 +28,9 @@ public class User implements UserDetails {
     private String passwordVerification;
 	@Min(1) @Max(20)
 	private Integer personsInHousehold;
-	@NotNull @DecimalMin("0.01") @Digits(integer = 3, fraction = 2)
+	@DecimalMin("0.01") @Digits(integer = 3, fraction = 2)
 	private BigDecimal pricePerKwh = new BigDecimal("0.25");
-	@NotNull @Min(1)
+	@Min(1)
 	private Integer gramPerKwh = 600;
 	@DecimalMin("0.01") @DecimalMax("1") @Digits(integer = 1, fraction = 2)
 	private Float maxDeviationFromAverage;
