@@ -19,6 +19,7 @@ public class User implements UserDetails {
 
     @Id
 	@Email
+	@Size(min = 5, max = 255)
     private String username;
     @NotNull
     @Size(min = 5, max = 255)

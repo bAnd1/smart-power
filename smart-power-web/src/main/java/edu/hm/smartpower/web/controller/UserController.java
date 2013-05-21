@@ -40,7 +40,7 @@ public class UserController {
             bindingResult.rejectValue("passwordVerification", "user.password.missmatch", "The passwords aren't equal, try again");
         }
         if (bindingResult.hasErrors()) {
-            return "login_error";
+            return "login";
         } else {
             String plainTextPassword = user.getPassword();
             userService.createAccount(user);
@@ -59,6 +59,6 @@ public class UserController {
 
     @RequestMapping("/login")
     public ModelAndView login() {
-        return new ModelAndView("login_request", "user", new User());
+        return new ModelAndView("login", "user", new User());
     }
 }
