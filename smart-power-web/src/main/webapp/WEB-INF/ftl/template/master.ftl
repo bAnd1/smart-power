@@ -7,6 +7,7 @@
     <title>${title}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css"
           href="/resources/css/master.css"/>
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
@@ -15,7 +16,6 @@
 <body>
 <header>
     <h1><a href="/">Smart Power</a></h1>
-
     <@sec.authorize access="isAuthenticated()">
         <div id="user">
 			<ul>

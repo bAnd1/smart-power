@@ -5,12 +5,13 @@
 
 header {
     color: white;
-    font-family: fantasy;
-    background: dodgerblue -webkit-gradient(linear, left top, left bottom, from(blue), to(rgb(15, 213, 255)));
+    padding: 30px;
+    background: -webkit-gradient(linear, left top, left bottom, from(blue), to(rgb(15, 213, 255)));
+    background: -moz-linear-gradient(top, blue 0%, rgb(15, 213, 255) 100%);
 }
 
 header h1 {
-    margin-left: 25px;
+    font-family: 'Josefin Slab', serif;
     font-weight: 400;
     font-size: 5.5em;
     text-shadow: -1px 1px 8px #ffc, 1px -1px 8px white;
@@ -40,6 +41,10 @@ header a {
 
 #user ul {
     list-style-type: none;
+}
+
+#user li:last-child {
+    padding-top: 8px;
 }
 
 body {
@@ -135,6 +140,23 @@ footer {
 
 /*Login*/
 
+#welcome {
+    margin: 70px auto 0;
+    width: 300px;
+    z-index: 1;
+    font-family: 'Josefin Slab', serif;
+}
+
+#welcome p {
+    font-size: 6em;
+}
+
+#login, #signup {
+    padding-top: 90px;
+    margin-top: -420px;
+    z-index: 1;
+}
+
 .login-list {
     width: 450px;
     margin: 0 auto;
@@ -160,15 +182,14 @@ footer {
     text-align: center;
     width: 400px;
     margin: 0 auto;
-    margin-top: 20px;
     padding: 5px;
     background-color: lightblue;
     border: solid 1px #c3c3c3;
 }
 
 label {
-	margin-top: 20px;
-	padding-top: 20px;
+    margin-top: 20px;
+    padding-top: 20px;
 }
 
 input[type=text], input[type=number], input[type=password] {
@@ -177,7 +198,7 @@ input[type=text], input[type=number], input[type=password] {
 }
 
 input[type=checkbox] {
-	margin-right: 10px;
+    margin-right: 10px;
 }
 
 input[type=submit] {
@@ -216,23 +237,158 @@ input[type=submit] {
 }
 
 .notice {
-	margin: 0.5em;
-	padding: 0.5em;
-	border: 1px solid #008414;
-	color: #008414;
-	background-color: #D8FFBB;
+    margin: 0.5em;
+    padding: 0.5em;
+    border: 1px solid #008414;
+    color: #008414;
+    background-color: #D8FFBB;
 }
 
 .alert {
-	margin: 0.5em;
-	padding: 0.5em;
-	border: 1px solid #990b02;
-	color: #990b02;
-	background-color: #FFA894;
+    margin: 0.5em;
+    padding: 0.5em;
+    border: 1px solid #990b02;
+    color: #990b02;
+    background-color: #FFA894;
 }
 
+#clouds {
+    margin-top: -161px;
+    padding: 100px 0;
+    background: #c9dbe9;
+    background: -webkit-linear-gradient(top, rgb(15, 213, 255) 0%, #fff 100%);
+    background: -linear-gradient(top, #c9dbe9 0%, #fff 100%);
+    background: -moz-linear-gradient(top, #c9dbe9 0%, #fff 100%);
+}
 
+.cloud {
+    width: 200px;
+    height: 60px;
+    background: #fff;
 
+    border-radius: 200px;
+    -moz-border-radius: 200px;
+    -webkit-border-radius: 200px;
 
+    position: relative;
+}
 
+.cloud:before, .cloud:after {
+    content: '';
+    position: absolute;
+    background: #fff;
+    width: 100px;
+    height: 80px;
+    position: absolute;
+    top: -15px;
+    left: 10px;
 
+    border-radius: 100px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+}
+
+.cloud:after {
+    width: 120px;
+    height: 120px;
+    top: -55px;
+    left: auto;
+    right: 15px;
+}
+
+/*Time to animate*/
+.x1 {
+    -webkit-animation: moveclouds 15s linear infinite;
+    -moz-animation: moveclouds 15s linear infinite;
+    -o-animation: moveclouds 15s linear infinite;
+    opacity: 0.7;
+}
+
+/*variable speed, opacity, and position of clouds for realistic effect*/
+.x2 {
+    left: 200px;
+
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    transform: scale(0.6);
+    opacity: 0.6; /*opacity proportional to the size*/
+
+    /*Speed will also be proportional to the size and opacity*/
+    /*More the speed. Less the time in 's' = seconds*/
+    -webkit-animation: moveclouds 25s linear infinite;
+    -moz-animation: moveclouds 25s linear infinite;
+    -o-animation: moveclouds 25s linear infinite;
+}
+
+.x3 {
+    left: -250px;
+    top: -200px;
+
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.8; /*opacity proportional to the size*/
+
+    -webkit-animation: moveclouds 20s linear infinite;
+    -moz-animation: moveclouds 20s linear infinite;
+    -o-animation: moveclouds 20s linear infinite;
+}
+
+.x4 {
+    left: 470px;
+    top: -250px;
+
+    -webkit-transform: scale(0.75);
+    -moz-transform: scale(0.75);
+    transform: scale(0.75);
+    opacity: 0.75; /*opacity proportional to the size*/
+
+    -webkit-animation: moveclouds 18s linear infinite;
+    -moz-animation: moveclouds 18s linear infinite;
+    -o-animation: moveclouds 18s linear infinite;
+}
+
+.x5 {
+    left: -150px;
+    top: -150px;
+
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.8; /*opacity proportional to the size*/
+
+    -webkit-animation: moveclouds 20s linear infinite;
+    -moz-animation: moveclouds 20s linear infinite;
+    -o-animation: moveclouds 20s linear infinite;
+}
+
+@-webkit-keyframes moveclouds {
+    0% {
+        margin-left: 1000px;
+    }
+    100% {
+        margin-left: -1000px;
+    }
+}
+
+@-moz-keyframes moveclouds {
+    0% {
+        margin-left: 1000px;
+    }
+    100% {
+        margin-left: -1000px;
+    }
+}
+
+@-o-keyframes moveclouds {
+    0% {
+        margin-left: 1000px;
+    }
+    100% {
+        margin-left: -1000px;
+    }
+}
