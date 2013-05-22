@@ -12,7 +12,6 @@ import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 
 @Entity
 public class User implements UserDetails {
@@ -32,8 +31,9 @@ public class User implements UserDetails {
 	private BigDecimal pricePerKwh = new BigDecimal("0.25");
 	@Min(1)
 	private Integer gramPerKwh = 600;
-	@DecimalMin("0.01") @DecimalMax("1") @Digits(integer = 1, fraction = 2)
-	private Float maxDeviationFromAverage;
+	private Boolean notificationsActivated;
+	@Min(1) @Max(1000)
+	private Integer maxDeviationFromAverage;
 	@Min(1)
 	private Integer maxUsagePerDay;
 
@@ -92,11 +92,11 @@ public class User implements UserDetails {
 		this.gramPerKwh = gramPerKwh;
 	}
 
-	public Float getMaxDeviationFromAverage() {
+	public Integer getMaxDeviationFromAverage() {
 		return maxDeviationFromAverage;
 	}
 
-	public void setMaxDeviationFromAverage(Float maxDeviationFromAverage) {
+	public void setMaxDeviationFromAverage(Integer maxDeviationFromAverage) {
 		this.maxDeviationFromAverage = maxDeviationFromAverage;
 	}
 
@@ -134,5 +134,13 @@ public class User implements UserDetails {
 
 	public void setPasswordVerification(String passwordVerification) {
 		this.passwordVerification = passwordVerification;
+	}
+
+	public Boolean getNotificationsActivated() {
+		return notificationsActivated;
+	}
+
+	public void setNotificationsActivated(Boolean notificationsActivated) {
+		this.notificationsActivated = notificationsActivated;
 	}
 }

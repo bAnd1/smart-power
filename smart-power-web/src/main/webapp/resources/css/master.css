@@ -166,9 +166,18 @@ footer {
     border: solid 1px #c3c3c3;
 }
 
-input {
+label {
+	margin-top: 20px;
+	padding-top: 20px;
+}
+
+input[type=text], input[type=number], input[type=password] {
     width: 400px;
     text-align: center;
+}
+
+input[type=checkbox] {
+	margin-right: 10px;
 }
 
 input[type=submit] {

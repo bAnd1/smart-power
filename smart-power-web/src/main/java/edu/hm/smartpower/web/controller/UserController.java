@@ -80,6 +80,9 @@ public class UserController {
 		currentUser.setGramPerKwh(user.getGramPerKwh());
 		currentUser.setPersonsInHousehold(user.getPersonsInHousehold());
 		currentUser.setPricePerKwh(user.getPricePerKwh());
+		currentUser.setNotificationsActivated(user.getNotificationsActivated());
+		currentUser.setMaxDeviationFromAverage(user.getMaxDeviationFromAverage());
+		currentUser.setMaxUsagePerDay(user.getMaxUsagePerDay());
 		validator.validate(currentUser, bindingResult);
 		if (bindingResult.hasErrors()) {
 			return "settings";

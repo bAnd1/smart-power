@@ -34,9 +34,7 @@
     <div id="stickyheader">
         <table>
             <tr>
-                <td><a href="/">Usage</a></td>
-                <td><a href="">Notifications</a></td>
-                <td><a href="">Forecast</a></td>
+                <td><a href="/">Usage Monitor</a></td>
                 <td><a href="/settings">Settings</a></td>
             </tr>
         </table>
