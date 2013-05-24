@@ -3,24 +3,24 @@ apply plugin: 'war'
 project.ext.hibernateVersion = "4.0.0.Final"
 
 dependencies {
-    compile("org.springframework:spring-context:$springVersion") {
-        exclude module: 'commons-logging'
-    }
-    compile "org.springframework:spring-jdbc:$springVersion"
-    compile "org.springframework:spring-orm:$springVersion"
-    compile "org.springframework.security:spring-security-core:$springSecurityVersion"
-    compile "org.springframework.security:spring-security-config:$springSecurityVersion"
+	compile("org.springframework:spring-context:$springVersion") {
+		exclude module: 'commons-logging'
+	}
+	compile "org.springframework:spring-jdbc:$springVersion"
+	compile "org.springframework:spring-orm:$springVersion"
+	compile "org.springframework.security:spring-security-core:$springSecurityVersion"
+	compile "org.springframework.security:spring-security-config:$springSecurityVersion"
 
-    compile "com.h2database:h2:1.3.160"
-    compile 'org.rrd4j:rrd4j:2.2'
+	compile "com.h2database:h2:1.3.160"
+	compile 'org.rrd4j:rrd4j:2.2'
 
-    compile "org.hibernate:hibernate-entitymanager:$hibernateVersion",
-            "org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final",
-            'commons-dbcp:commons-dbcp:1.4'
+	compile "org.hibernate:hibernate-entitymanager:$hibernateVersion",
+			"org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final",
+			'commons-dbcp:commons-dbcp:1.4'
 
-    compile "javax.validation:validation-api:1.0.0.GA",
-            "org.hibernate:hibernate-validator:4.0.2.GA"
+	compile "javax.validation:validation-api:1.0.0.GA",
+			"org.hibernate:hibernate-validator:4.0.2.GA"
 
-	compile 'joda-time:joda-time:2.2'
-
+	compile 'joda-time:joda-time:2.2',
+			'commons-io:commons-io:2.4'
 }

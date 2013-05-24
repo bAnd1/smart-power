@@ -10,10 +10,12 @@ import javax.inject.Named;
 @Named
 public class MeterValueServiceImpl implements MeterValueService {
 
-    @Inject
-    private MeterValueDao meterValueDao;
-    @Override
-    public void storeValue(DateTime date, float value, User user) {
-        meterValueDao.storeValue(date, value, user);
-    }
+	@Inject
+	private MeterValueDao meterValueDao;
+
+	@Override
+	public void storeValue(DateTime date, float value, User user) {
+		// TODO calculate usage
+		meterValueDao.storeValue(date, value, value, user);
+	}
 }

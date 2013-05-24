@@ -8,9 +8,9 @@ import java.util.Map;
 
 public interface MeterValueDao {
 
-	void storeValue(DateTime date, float value, User user);
+	void storeValue(DateTime date, float value, float usage, User user);
 
-	Map<DateTime,Float> getUsages(Period period);
+	Map<DateTime, Float> getUsages(User currentUser, Period period);
 
 	Float getMeterReading(User currentUser, DateTime dateTime);
 }

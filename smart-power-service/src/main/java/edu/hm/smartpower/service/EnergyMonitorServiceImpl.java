@@ -1,7 +1,11 @@
 package edu.hm.smartpower.service;
 
 import edu.hm.smartpower.dao.MeterValueDao;
-import edu.hm.smartpower.domain.*;
+import edu.hm.smartpower.domain.Period;
+import edu.hm.smartpower.domain.UsageDetails;
+import edu.hm.smartpower.domain.Usages;
+import edu.hm.smartpower.domain.UsagesDay;
+import edu.hm.smartpower.domain.User;
 import org.joda.time.DateTime;
 
 import javax.inject.Inject;
@@ -21,7 +25,7 @@ public class EnergyMonitorServiceImpl implements EnergyMonitorService {
 	@Override
 	public UsagesDay getUsagesOfToday(User currentUser) {
 		UsagesDay usagesDay = new UsagesDay();
-		Map<DateTime, Float> usages = meterValueDao.getUsages(Period.TODAY);
+		Map<DateTime, Float> usages = meterValueDao.getUsages(currentUser, Period.TODAY);
 		usagesDay.setUsages(usages);
 		Float totalUsage = 0F;
 		for (Float usage : usages.values()) totalUsage += usage;
