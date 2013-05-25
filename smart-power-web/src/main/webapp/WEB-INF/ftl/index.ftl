@@ -8,6 +8,7 @@
 	<br>
 	<br>
 
+
 	<h1>Current consumption:</h1>
 	<img src="/resources/img/diagram1.png">
 	<br>
