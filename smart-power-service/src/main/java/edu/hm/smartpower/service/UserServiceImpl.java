@@ -2,6 +2,7 @@ package edu.hm.smartpower.service;
 
 import edu.hm.smartpower.dao.GenericCrudDao;
 import edu.hm.smartpower.domain.User;
+import org.joda.time.DateTime;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -17,7 +18,7 @@ import static edu.hm.smartpower.domain.QUser.user;
 @Named
 public class UserServiceImpl implements UserService {
 	@Inject
-	private GenericCrudDao genericCrudDao;
+	private GenericCrudDao dao;
 
 	@Named("passwordEncoder")
 	@Inject
@@ -25,7 +26,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		return genericCrudDao.getById(User.class, username);
+		return dao.getById(User.class, username);
 	}
 
 	@Override
@@ -44,18 +45,21 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User createAccount(User user) {
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
-		genericCrudDao.persist(user);
+		dao.persist(user);
 		return user;
 	}
 
 	@Override
 	public List<User> getUsersForNotificationCheck() {
-		// TODO check if notifications where sent today
-		return genericCrudDao.queryFrom(user)
+		return dao.queryFrom(user)
 				.where(user.notificationsActivated.eq(true),
 						or(
 								user.maxDeviationFromAverage.isNotNull(),
 								user.maxUsagePerDay.isNotNull()
+						),
+						or(
+								user.lastDeviationNotification.before(DateTime.now().withTimeAtStartOfDay().toDate()),
+								user.lastMaxUsageNotification.before(DateTime.now().withTimeAtStartOfDay().toDate())
 						)
 				).list(user);
 	}

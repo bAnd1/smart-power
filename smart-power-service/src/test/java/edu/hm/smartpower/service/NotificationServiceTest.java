@@ -1,5 +1,6 @@
 package edu.hm.smartpower.service;
 
+import edu.hm.smartpower.dao.GenericCrudDao;
 import edu.hm.smartpower.dao.MeterValueDao;
 import edu.hm.smartpower.domain.Period;
 import edu.hm.smartpower.domain.User;
@@ -24,6 +25,8 @@ public class NotificationServiceTest {
 	private JavaMailSender mailSender;
 	@Mock
 	private UserService userService;
+	@Mock
+	private GenericCrudDao dao;
 	@InjectMocks
 	private NotificationServiceImpl notificationService;
 
@@ -37,28 +40,28 @@ public class NotificationServiceTest {
 	@Test
 	public void testBothNotifications() {
 		when(userService.getUsersForNotificationCheck()).thenReturn(Arrays.asList(createTestuser(50, 150)));
-		notificationService.checkForAnnormalies();
+		notificationService.checkForAnomalies();
 		verify(mailSender, times(2)).send(any(SimpleMailMessage.class));
 	}
 
 	@Test
 	public void testDeviationNotification() {
 		when(userService.getUsersForNotificationCheck()).thenReturn(Arrays.asList(createTestuser(50, 200)));
-		notificationService.checkForAnnormalies();
+		notificationService.checkForAnomalies();
 		verify(mailSender, times(1)).send(any(SimpleMailMessage.class));
 	}
 
 	@Test
 	public void testMaxUsageNotification() {
 		when(userService.getUsersForNotificationCheck()).thenReturn(Arrays.asList(createTestuser(100, 150)));
-		notificationService.checkForAnnormalies();
+		notificationService.checkForAnomalies();
 		verify(mailSender, times(1)).send(any(SimpleMailMessage.class));
 	}
 
 	@Test
 	public void testNoNotifications() {
 		when(userService.getUsersForNotificationCheck()).thenReturn(Arrays.asList(createTestuser(100, 200)));
-		notificationService.checkForAnnormalies();
+		notificationService.checkForAnomalies();
 		verify(mailSender, times(0)).send(any(SimpleMailMessage.class));
 	}
 

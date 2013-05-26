@@ -1,6 +1,7 @@
 apply plugin: 'war'
 
 project.ext.hibernateVersion = "4.0.0.Final"
+project.ext.querydslVersion = "3.1.1"
 
 dependencies {
     compile("org.springframework:spring-context:$springVersion") {
@@ -19,7 +20,8 @@ dependencies {
     compile "org.hibernate:hibernate-entitymanager:$hibernateVersion",
             "org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final",
             'commons-dbcp:commons-dbcp:1.4'
-	compile 'com.mysema.querydsl:querydsl-jpa:3.1.1'
+	compile "com.mysema.querydsl:querydsl-jpa:$querydslVersion",
+			"com.mysema.querydsl:querydsl-apt:$querydslVersion"
 
 	compile "javax.validation:validation-api:1.0.0.GA",
             "org.hibernate:hibernate-validator:4.0.2.GA"

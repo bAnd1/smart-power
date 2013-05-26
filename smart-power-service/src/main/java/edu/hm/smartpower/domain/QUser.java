@@ -2,14 +2,15 @@ package edu.hm.smartpower.domain;
 
 import static com.mysema.query.types.PathMetadataFactory.*;
 
-import com.mysema.query.types.*;
 import com.mysema.query.types.path.*;
 
+import com.mysema.query.types.PathMetadata;
 import javax.annotation.Generated;
+import com.mysema.query.types.Path;
 
 
 /**
- * QUser is a Querydsl queryFrom type for User
+ * QUser is a Querydsl query type for User
  */
 @Generated("com.mysema.query.codegen.EntitySerializer")
 public class QUser extends EntityPathBase<User> {
@@ -19,6 +20,10 @@ public class QUser extends EntityPathBase<User> {
     public static final QUser user = new QUser("user");
 
     public final NumberPath<Integer> gramPerKwh = createNumber("gramPerKwh", Integer.class);
+
+    public final DateTimePath<java.util.Date> lastDeviationNotification = createDateTime("lastDeviationNotification", java.util.Date.class);
+
+    public final DateTimePath<java.util.Date> lastMaxUsageNotification = createDateTime("lastMaxUsageNotification", java.util.Date.class);
 
     public final NumberPath<Integer> maxDeviationFromAverage = createNumber("maxDeviationFromAverage", Integer.class);
 
@@ -38,8 +43,9 @@ public class QUser extends EntityPathBase<User> {
         super(User.class, forVariable(variable));
     }
 
+    @SuppressWarnings("all")
     public QUser(Path<? extends User> path) {
-        super(path.getType(), path.getMetadata());
+        super((Class)path.getType(), path.getMetadata());
     }
 
     public QUser(PathMetadata<?> metadata) {
