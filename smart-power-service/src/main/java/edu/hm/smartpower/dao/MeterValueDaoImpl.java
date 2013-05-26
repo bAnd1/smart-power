@@ -33,4 +33,14 @@ public class MeterValueDaoImpl implements MeterValueDao {
 	public Float getMeterReading(User currentUser, DateTime dateTime) {
 		return (float) mockMeter.getAndAdd(10);
 	}
+
+	@Override
+	public Float getUsage(Period today) {
+		return 100f;
+	}
+
+	@Override
+	public Float getAverageDailyUsage(User user, DateTime dateTime, DateTime now) {
+		return 100f;
+	}
 }

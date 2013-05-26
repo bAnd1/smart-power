@@ -13,4 +13,8 @@ public interface MeterValueDao {
 	Map<DateTime,Float> getUsages(Period period);
 
 	Float getMeterReading(User currentUser, DateTime dateTime);
+
+	Float getUsage(Period today);
+
+	Float getAverageDailyUsage(User user, DateTime dateTime, DateTime now);
 }

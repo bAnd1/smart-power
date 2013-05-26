@@ -6,21 +6,36 @@ dependencies {
     compile("org.springframework:spring-context:$springVersion") {
         exclude module: 'commons-logging'
     }
-    compile "org.springframework:spring-jdbc:$springVersion"
-    compile "org.springframework:spring-orm:$springVersion"
+	compile "org.springframework:spring-context-support:$springVersion"
+	compile "org.springframework:spring-jdbc:$springVersion"
+	compile "org.springframework:spring-orm:$springVersion"
     compile "org.springframework.security:spring-security-core:$springSecurityVersion"
     compile "org.springframework.security:spring-security-config:$springSecurityVersion"
+	compile 'javax.mail:mail:1.4.7'
 
-    compile "com.h2database:h2:1.3.160"
+	compile "com.h2database:h2:1.3.160"
     compile 'org.rrd4j:rrd4j:2.2'
 
     compile "org.hibernate:hibernate-entitymanager:$hibernateVersion",
             "org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final",
             'commons-dbcp:commons-dbcp:1.4'
+	compile 'com.mysema.querydsl:querydsl-jpa:3.1.1'
 
-    compile "javax.validation:validation-api:1.0.0.GA",
+	compile "javax.validation:validation-api:1.0.0.GA",
             "org.hibernate:hibernate-validator:4.0.2.GA"
 
 	compile 'joda-time:joda-time:2.2'
 
 }
+
+task generateQueryDSL(type: JavaCompile, group: 'build', description: 'Generates the QueryDSL query types') {
+	source = sourceSets.main.java
+	classpath = configurations.compile
+	options.compilerArgs = [
+			"-proc:only",
+			"-processor", "com.mysema.query.apt.jpa.JPAAnnotationProcessor"
+	]
+	destinationDir = sourceSets.main.java.srcDirs.iterator().next()
+}
+
+compileJava.dependsOn generateQueryDSL

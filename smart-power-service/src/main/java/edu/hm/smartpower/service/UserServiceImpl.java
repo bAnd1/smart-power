@@ -9,6 +9,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.List;
+
+import static edu.hm.smartpower.domain.QUser.user;
 
 @Named
 public class UserServiceImpl implements UserService {
@@ -43,4 +46,10 @@ public class UserServiceImpl implements UserService {
         genericCrudDao.persist(user);
 		return user;
     }
+
+	@Override
+	public List<User> getUsersForNotificationCheck() {
+		// TODO check if notifications where sent today
+		return genericCrudDao.queryFrom(user).where(user.notificationsActivated.eq(true)).list(user);
+	}
 }
