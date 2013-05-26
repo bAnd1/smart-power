@@ -19,7 +19,8 @@ subprojects {
 
         testCompile "junit:junit:4.8.2"
         testCompile "org.springframework:spring-test:$springVersion"
-    }
+        testCompile 'org.mockito:mockito-all:1.9.5'
+	}
 
     task wrapper(type: Wrapper) {
         description = "Generates gradlew[.bat] scripts"

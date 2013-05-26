@@ -33,7 +33,7 @@ public class NotificationServiceImpl {
 			}
 			Float averageUsage = meterValueDao.getAverageDailyUsage(user, DateTime.now().minusMonths(3), DateTime.now());
 			double deviationFromAverage = getDeviationFromAverage(currentUsage, averageUsage);
-			if (deviationFromAverage > user.getMaxDeviationFromAverage()) {
+			if (deviationFromAverage > user.getMaxDeviationFromAverage() / 100) {
 				sendNotification(user, "Current: " + currentUsage + " Average: " + averageUsage);
 			}
 		}
