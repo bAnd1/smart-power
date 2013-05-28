@@ -33,8 +33,8 @@ public class NotificationServiceTest {
 	@Before
 	public void initMocks() {
 		MockitoAnnotations.initMocks(this);
-		when(meterValueDao.getAverageDailyUsage(any(User.class), any(DateTime.class), any(DateTime.class))).thenReturn(100f);
-		when(meterValueDao.getUsage(Period.TODAY)).thenReturn(151f);
+		when(meterValueDao.getAverageUsage(any(User.class), any(DateTime.class), any(DateTime.class))).thenReturn(100f);
+		when(meterValueDao.getUsageToday(any(User.class))).thenReturn(151f);
 	}
 
 	@Test

@@ -26,7 +26,8 @@ dependencies {
 	compile "javax.validation:validation-api:1.0.0.GA",
             "org.hibernate:hibernate-validator:4.0.2.GA"
 
-	compile 'joda-time:joda-time:2.2'
+	compile 'joda-time:joda-time:2.2',
+			'commons-io:commons-io:2.4'
 
 }
 
