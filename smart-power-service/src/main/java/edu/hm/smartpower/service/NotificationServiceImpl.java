@@ -47,11 +47,13 @@ public class NotificationServiceImpl {
 	}
 
 	private boolean noMaxUsageNotificationToday(User user) {
-		return new DateTime(user.getLastMaxUsageNotification()).isBefore(DateTime.now().withTimeAtStartOfDay());
+		return user.getLastMaxUsageNotification() == null ||
+				new DateTime(user.getLastMaxUsageNotification()).isBefore(DateTime.now().withTimeAtStartOfDay());
 	}
 
 	private boolean noDeviationNotificationToday(User user) {
-		return new DateTime(user.getLastDeviationNotification()).isBefore(DateTime.now().withTimeAtStartOfDay());
+		return user.getLastDeviationNotification() == null ||
+				new DateTime(user.getLastDeviationNotification()).isBefore(DateTime.now().withTimeAtStartOfDay());
 	}
 
 	private void sendNotification(User user, String message) {
