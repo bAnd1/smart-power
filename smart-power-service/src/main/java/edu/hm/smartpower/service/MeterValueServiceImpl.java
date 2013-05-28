@@ -16,6 +16,6 @@ public class MeterValueServiceImpl implements MeterValueService {
 	@Override
 	public void storeValue(DateTime date, float value, User user) {
 		// TODO calculate usage
-		meterValueDao.storeValue(date, value, value, user);
+		meterValueDao.storeValue(date, value, user);
 	}
 }
