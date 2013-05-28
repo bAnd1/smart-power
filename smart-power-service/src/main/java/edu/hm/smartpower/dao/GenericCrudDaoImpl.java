@@ -1,5 +1,7 @@
 package edu.hm.smartpower.dao;
 
+import com.mysema.query.jpa.impl.JPAQuery;
+import com.mysema.query.types.EntityPath;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Named;
@@ -98,5 +100,17 @@ public class GenericCrudDaoImpl implements GenericCrudDao {
 	@Override
 	public void detach(Object entity) {
 		entityManager.detach(entity);
+	}
+
+	@Override
+	public <T> List<T> findAll(Class<T> entityClass) {
+		CriteriaQuery<T> criteriaQuery = entityManager.getCriteriaBuilder().createQuery(entityClass);
+		criteriaQuery.from(entityClass);
+		return entityManager.createQuery(criteriaQuery).getResultList();
+	}
+
+	@Override
+	public JPAQuery queryFrom(EntityPath<?> target) {
+		return new JPAQuery(entityManager).from(target);
 	}
 }

@@ -1,5 +1,9 @@
 package edu.hm.smartpower.dao;
 
+import com.mysema.query.jpa.impl.JPAQuery;
+import com.mysema.query.types.EntityPath;
+import edu.hm.smartpower.domain.User;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -33,4 +37,8 @@ public interface GenericCrudDao {
     <T> List<T> getByPropertyIn(Class<T> entityClass, String property, Collection<?> propertyValues);
 
 	void detach(Object entity);
+
+	<T> List<T> findAll(Class<T> entityClass);
+
+	JPAQuery queryFrom(EntityPath<?> target);
 }

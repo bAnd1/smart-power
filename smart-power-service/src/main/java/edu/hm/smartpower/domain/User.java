@@ -5,13 +5,12 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 
 @Entity
 public class User implements UserDetails {
@@ -34,10 +33,18 @@ public class User implements UserDetails {
 	private Boolean notificationsActivated;
 	@Min(1) @Max(1000)
 	private Integer maxDeviationFromAverage;
+	@Temporal(TemporalType.DATE)
+	private Date lastDeviationNotification;
 	@Min(1)
 	private Integer maxUsagePerDay;
+	@Temporal(TemporalType.DATE)
+	private Date lastMaxUsageNotification;
 
 	public User() {
+	}
+
+	public User(String username) {
+		this.username = username;
 	}
 
 	public User(String username, String password) {
@@ -142,5 +149,21 @@ public class User implements UserDetails {
 
 	public void setNotificationsActivated(Boolean notificationsActivated) {
 		this.notificationsActivated = notificationsActivated;
+	}
+
+	public Date getLastDeviationNotification() {
+		return lastDeviationNotification;
+	}
+
+	public void setLastDeviationNotification(Date lastDeviationNotification) {
+		this.lastDeviationNotification = lastDeviationNotification;
+	}
+
+	public Date getLastMaxUsageNotification() {
+		return lastMaxUsageNotification;
+	}
+
+	public void setLastMaxUsageNotification(Date lastMaxUsageNotification) {
+		this.lastMaxUsageNotification = lastMaxUsageNotification;
 	}
 }

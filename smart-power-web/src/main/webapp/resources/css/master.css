@@ -253,12 +253,12 @@ input[type=submit] {
 }
 
 #clouds {
-    margin-top: -161px;
+    margin-top: -162px;
     padding: 100px 0;
     background: #c9dbe9;
     background: -webkit-linear-gradient(top, rgb(15, 213, 255) 0%, #fff 100%);
     background: -linear-gradient(top, #c9dbe9 0%, #fff 100%);
-    background: -moz-linear-gradient(top, #c9dbe9 0%, #fff 100%);
+    background: -moz-linear-gradient(top, rgb(15, 213, 255) 0%, #fff 100%);
 }
 
 .cloud {

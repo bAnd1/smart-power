@@ -101,8 +101,14 @@ public class MeterValueDaoImpl implements MeterValueDao {
 		average /= values.size();
 		return average;
 	}
-	
-	private Map<DateTime, Float> generateMapFromData(FetchData fetchData, String table) {
+
+    @Override
+    public Float getUsageToday(User user) {
+        // TODO
+        return 100f;
+    }
+
+    private Map<DateTime, Float> generateMapFromData(FetchData fetchData, String table) {
 		Map<DateTime, Float> result = new HashMap<DateTime, Float>();
 		double[] valuesArray = fetchData.getValues(table);
 		long[] timestamps = fetchData.getTimestamps();

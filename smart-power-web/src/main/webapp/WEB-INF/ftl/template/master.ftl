@@ -11,6 +11,8 @@
     <link rel="stylesheet" type="text/css"
           href="/resources/css/master.css"/>
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
 </head>
 
 <body>
@@ -18,18 +20,17 @@
     <h1><a href="/">Smart Power</a></h1>
     <@sec.authorize access="isAuthenticated()">
         <div id="user">
-			<ul>
-				<li>
-					Welcome <@sec.authentication property="principal.username"/>
-				</li>
-				<li>
-					<a href="/logout">Logout</a>
-				</li>
+            <ul>
+                <li>
+                    Welcome <@sec.authentication property="principal.username"/>
+                </li>
+                <li>
+                    <a href="/logout">Logout</a>
+                </li>
             </ul>
         </div>
     </@sec.authorize>
 </header>
-
     <@sec.authorize access="isAuthenticated()">
     <div id="stickyheader">
         <table>
@@ -43,8 +44,8 @@
     </@sec.authorize>
 
 <div id="main">
-	<#if success?? ><p class="notice">${success}</p></#if>
-	<#if error?? ><p class="alert">${error}</p></#if>
+    <#if success?? ><p class="notice">${success}</p></#if>
+    <#if error?? ><p class="alert">${error}</p></#if>
     <@sec.authorize access="isAuthenticated()">
         <#include 'sticky_dashboard.ftl'>
     </@sec.authorize>
