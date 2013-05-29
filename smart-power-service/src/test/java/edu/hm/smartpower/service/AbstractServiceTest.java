@@ -1,14 +1,18 @@
 package edu.hm.smartpower.service;
 
 import edu.hm.smartpower.domain.User;
+import org.junit.Ignore;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
+import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:spring/applicationContext.xml"})
+@ContextConfiguration(locations = {"classpath:spring/applicationContext.xml", "classpath:datasource-test-context.xml"})
 @TransactionConfiguration(defaultRollback = true)
+@Transactional
 public class AbstractServiceTest {
 
 	protected User createUser(String username) {
@@ -21,4 +25,6 @@ public class AbstractServiceTest {
 		user.setPassword(password);
 		return user;
 	}
+
+	@Test public void workaroundAgainstNoRunnableMethods() {}
 }

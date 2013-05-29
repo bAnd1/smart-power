@@ -4,9 +4,9 @@ import edu.hm.smartpower.dao.GenericCrudDao;
 import edu.hm.smartpower.domain.User;
 import org.junit.Test;
 import org.springframework.mail.MailSender;
-import org.springframework.orm.jpa.JpaSystemException;
 
 import javax.inject.Inject;
+import javax.persistence.EntityExistsException;
 
 import static edu.hm.smartpower.domain.QUser.user;
 import static org.junit.Assert.assertEquals;
@@ -18,7 +18,7 @@ public class GenericCrudServiceImplTest extends AbstractServiceTest {
 	@Inject
 	private MailSender mailSender;
 
-	@Test(expected = JpaSystemException.class)
+	@Test(expected = EntityExistsException.class)
 	public void testPersistSameUsernameTwice() throws Exception {
 		long countBefore = genericCrudDao.getCount(User.class);
 		genericCrudDao.persist(createUser("asdf@example.com"));

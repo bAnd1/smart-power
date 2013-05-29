@@ -22,6 +22,8 @@ subprojects {
         testCompile 'org.mockito:mockito-all:1.9.5'
 	}
 
+	test.testLogging.exceptionFormat = 'full'
+
     task wrapper(type: Wrapper) {
         description = "Generates gradlew[.bat] scripts"
         gradleVersion = "1.6"
@@ -31,4 +33,8 @@ subprojects {
         sourceCompatibility = 1.6
         targetCompatibility = 1.6
     }
+
+	tasks.withType(Compile) {
+		options.encoding = 'UTF-8'
+	}
 }
